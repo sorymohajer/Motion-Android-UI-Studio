@@ -1,0 +1,75 @@
+{
+  "fade-slide": {
+    "name": "Fade + Slide In",
+    "description": "ظهور تدريجي مع انزلاق",
+    "duration": 300,
+    "easing": "ease-out",
+    "properties": {
+      "opacity": "0 → 1",
+      "transform": "translateY(30px) → translateY(0)"
+    },
+    "composeCode": "slideInVertically + fadeIn",
+    "bestFor": ["splash", "login", "general"]
+  },
+  "scale-reveal": {
+    "name": "Scale Reveal", 
+    "description": "كشف بالتكبير",
+    "duration": 400,
+    "easing": "ease-out",
+    "properties": {
+      "opacity": "0 → 1",
+      "transform": "scale(0.8) → scale(1)"
+    },
+    "composeCode": "scaleIn + fadeIn",
+    "bestFor": ["splash", "cards", "buttons"]
+  },
+  "staggered": {
+    "name": "Staggered Content",
+    "description": "ظهور متتالي للعناصر",
+    "duration": 300,
+    "easing": "ease-out", 
+    "staggerDelay": 100,
+    "properties": {
+      "opacity": "0 → 1",
+      "transform": "translateX(-20px) → translateX(0)"
+    },
+    "composeCode": "slideInHorizontally + fadeIn with delay",
+    "bestFor": ["home", "settings", "lists"]
+  },
+  "bounce": {
+    "name": "Bounce",
+    "description": "حركة مرتدة مرحة",
+    "duration": 500,
+    "easing": "cubic-bezier(0.68, -0.55, 0.265, 1.55)",
+    "properties": {
+      "opacity": "0 → 1", 
+      "transform": "translateY(-20px) scale(0.9) → translateY(0) scale(1)"
+    },
+    "composeCode": "spring animation with bounce",
+    "bestFor": ["splash", "success", "notifications"]
+  },
+  "slide-horizontal": {
+    "name": "Slide Horizontal",
+    "description": "انزلاق أفقي",
+    "duration": 350,
+    "easing": "ease-in-out",
+    "properties": {
+      "opacity": "0 → 1",
+      "transform": "translateX(100%) → translateX(0)"
+    },
+    "composeCode": "slideInHorizontally + fadeIn",
+    "bestFor": ["onboarding", "navigation", "pages"]
+  },
+  "rotate-fade": {
+    "name": "Rotate Fade",
+    "description": "دوران مع ظهور",
+    "duration": 600,
+    "easing": "ease-out",
+    "properties": {
+      "opacity": "0 → 1",
+      "transform": "rotate(-10deg) scale(0.9) → rotate(0deg) scale(1)"
+    },
+    "composeCode": "rotateIn + scaleIn + fadeIn", 
+    "bestFor": ["splash", "logo", "special-elements"]
+  }
+}

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motion Studio - استوديو الحركات</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="motion-studio.css">
+</head>
+<body>
+    <div class="motion-studio-container">
+        <header class="motion-studio-header">
+            <div class="header-left">
+                <button class="back-btn" onclick="window.location.href='../studio.html'">
+                    ← العودة للاستوديو
+                </button>
+                <h1>Motion Studio</h1>
+                <span class="subtitle">استوديو تصميم الحركات المتقدم</span>
+            </div>
+            <div class="header-right">
+                <button class="action-btn" onclick="motionStudio.playAll()">▶️ تشغيل الكل</button>
+                <button class="action-btn" onclick="motionStudio.exportMotion()">📥 تصدير</button>
+            </div>
+        </header>
+
+        <div class="motion-studio-layout">
+            <!-- Timeline Panel -->
+            <div class="timeline-panel">
+                <div class="timeline-header">
+                    <h3>الخط الزمني</h3>
+                    <div class="timeline-controls">
+                        <button onclick="motionStudio.undo()" title="تراجع">↶</button>
+                        <button onclick="motionStudio.redo()" title="إعادة">↷</button>
+                        <button onclick="motionStudio.play()" title="تشغيل">▶️</button>
+                        <button onclick="motionStudio.pause()" title="إيقاف">⏸️</button>
+                        <button onclick="motionStudio.reset()" title="إعادة تعيين">⏹️</button>
+                    </div>
+                </div>
+                
+                <div class="timeline-content">
+                    <div class="timeline-ruler">
+                        <div class="time-markers" id="timeMarkers">
+                            <!-- علامات الوقت -->
+                        </div>
+                        <div class="playhead" id="playhead"></div>
+                    </div>
+                    
+                    <div class="timeline-tracks" id="timelineTracks">
+                        <!-- مسارات العناصر -->
+                    </div>
+                </div>
+                
+                <div class="timeline-footer">
+                    <div class="timeline-zoom">
+                        <button onclick="motionStudio.zoomOut()">🔍-</button>
+                        <span id="zoomLevel">100%</span>
+                        <button onclick="motionStudio.zoomIn()">🔍+</button>
+                    </div>
+                    <div class="timeline-duration">
+                        <span id="currentTime">0.0s</span> / <span id="totalDuration">2.0s</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Properties Panel -->
+            <div class="properties-panel">
+                <div class="properties-header">
+                    <h3>خصائص الحركة</h3>
+                    <div class="selected-element" id="selectedElement">
+                        لم يتم تحديد عنصر
+                    </div>
+                </div>
+                
+                <div class="properties-content" id="propertiesContent">
+                    <div class="property-group">
+                        <h4>الموضع</h4>
+                        <div class="property-row">
+                            <label>X:</label>
+                            <input type="range" id="positionX" min="-100" max="100" value="0" 
+                                   onchange="motionStudio.updateProperty('x', this.value)">
+                            <span id="positionXValue">0px</span>
+                        </div>
+                        <div class="property-row">
+                            <label>Y:</label>
+                            <input type="range" id="positionY" min="-100" max="100" value="0"
+                                   onchange="motionStudio.updateProperty('y', this.value)">
+                            <span id="positionYValue">0px</span>
+                        </div>
+                    </div>
+                    
+                    <div class="property-group">
+                        <h4>التحويل</h4>
+                        <div class="property-row">
+                            <label>المقياس:</label>
+                            <input type="range" id="scale" min="0.1" max="2" step="0.1" value="1"
+                                   onchange="motionStudio.updateProperty('scale', this.value)">
+                            <span id="scaleValue">1.0</span>
+                        </div>
+                        <div class="property-row">
+                            <label>الدوران:</label>
+                            <input type="range" id="rotation" min="-180" max="180" value="0"
+                                   onchange="motionStudio.updateProperty('rotation', this.value)">
+                            <span id="rotationValue">0°</span>
+                        </div>
+                    </div>
+                    
+                    <div class="property-group">
+                        <h4>الشفافية</h4>
+                        <div class="property-row">
+                            <label>الشفافية:</label>
+                            <input type="range" id="opacity" min="0" max="1" step="0.1" value="1"
+                                   onchange="motionStudio.updateProperty('opacity', this.value)">
+                            <span id="opacityValue">100%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="property-group">
+                        <h4>التوقيت</h4>
+                        <div class="property-row">
+                            <label>المدة:</label>
+                            <input type="range" id="duration" min="0.1" max="3" step="0.1" value="0.3"
+                                   onchange="motionStudio.updateProperty('duration', this.value)">
+                            <span id="durationValue">0.3s</span>
+                        </div>
+                        <div class="property-row">
+                            <label>التأخير:</label>
+                            <input type="range" id="delay" min="0" max="2" step="0.1" value="0"
+                                   onchange="motionStudio.updateProperty('delay', this.value)">
+                            <span id="delayValue">0s</span>
+                        </div>
+                    </div>
+                    
+                    <div class="property-group">
+                        <h4>منحنى التسارع</h4>
+                        <div class="easing-presets">
+                            <button class="easing-btn active" data-easing="ease-out" onclick="motionStudio.setEasing(this)">Ease Out</button>
+                            <button class="easing-btn" data-easing="ease-in" onclick="motionStudio.setEasing(this)">Ease In</button>
+                            <button class="easing-btn" data-easing="ease-in-out" onclick="motionStudio.setEasing(this)">Ease In Out</button>
+                            <button class="easing-btn" data-easing="bounce" onclick="motionStudio.setEasing(this)">Bounce</button>
+                        </div>
+                        
+                        <div class="easing-curve" id="easingCurve">
+                            <canvas id="easingCanvas" width="200" height="100"></canvas>
+                        </div>
+                        
+                        <div class="custom-easing">
+                            <label>مخصص:</label>
+                            <input type="text" id="customEasing" placeholder="cubic-bezier(0.4, 0, 0.2, 1)"
+                                   onchange="motionStudio.setCustomEasing(this.value)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Preview Panel -->
+            <div class="motion-preview-panel">
+                <div class="preview-header">
+                    <h3>المعاينة</h3>
+                    <div class="preview-controls">
+                        <button onclick="motionStudio.resetPreview()">🔄 إعادة تعيين</button>
+                        <button onclick="motionStudio.toggleGrid()">⊞ الشبكة</button>
+                        <button onclick="motionStudio.toggleGuides()">📏 الأدلة</button>
+                    </div>
+                </div>
+                
+                <div class="preview-content">
+                    <div class="preview-stage" id="previewStage">
+                        <div class="grid-overlay" id="gridOverlay"></div>
+                        <div class="guides-overlay" id="guidesOverlay"></div>
+                        
+                        <!-- عناصر المعاينة -->
+                        <div class="preview-element" id="element1" data-element="splash-logo">
+                            <div class="element-content">Logo</div>
+                        </div>
+                        
+                        <div class="preview-element" id="element2" data-element="splash-title">
+                            <div class="element-content">عنوان التطبيق</div>
+                        </div>
+                        
+                        <div class="preview-element" id="element3" data-element="splash-subtitle">
+                            <div class="element-content">وصف التطبيق</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="preview-footer">
+                    <div class="playback-speed">
+                        <label>سرعة التشغيل:</label>
+                        <select id="playbackSpeed" onchange="motionStudio.setPlaybackSpeed(this.value)">
+                            <option value="0.25">0.25x</option>
+                            <option value="0.5">0.5x</option>
+                            <option value="1" selected>1x</option>
+                            <option value="1.5">1.5x</option>
+                            <option value="2">2x</option>
+                        </select>
+                    </div>
+                    
+                    <div class="loop-control">
+                        <label>
+                            <input type="checkbox" id="loopAnimation" onchange="motionStudio.toggleLoop(this.checked)">
+                            تكرار مستمر
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Presets Panel -->
+            <div class="presets-panel">
+                <div class="presets-header">
+                    <h3>الإعدادات المسبقة</h3>
+                    <button class="add-preset-btn" onclick="motionStudio.savePreset()">+ حفظ إعداد</button>
+                </div>
+                
+                <div class="presets-content">
+                    <div class="preset-category">
+                        <h4>حركات الدخول</h4>
+                        <div class="preset-grid">
+                            <div class="preset-item" onclick="motionStudio.applyPreset('fadeIn')">
+                                <div class="preset-preview">↗️</div>
+                                <span>Fade In</span>
+                            </div>
+                            <div class="preset-item" onclick="motionStudio.applyPreset('slideInUp')">
+                                <div class="preset-preview">⬆️</div>
+                                <span>Slide Up</span>
+                            </div>
+                            <div class="preset-item" onclick="motionStudio.applyPreset('scaleIn')">
+                                <div class="preset-preview">🔍</div>
+                                <span>Scale In</span>
+                            </div>
+                            <div class="preset-item" onclick="motionStudio.applyPreset('bounceIn')">
+                                <div class="preset-preview">🏀</div>
+                                <span>Bounce In</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="preset-category">
+                        <h4>حركات الخروج</h4>
+                        <div class="preset-grid">
+                            <div class="preset-item" onclick="motionStudio.applyPreset('fadeOut')">
+                                <div class="preset-preview">↙️</div>
+                                <span>Fade Out</span>
+                            </div>
+                            <div class="preset-item" onclick="motionStudio.applyPreset('slideOutDown')">
+                                <div class="preset-preview">⬇️</div>
+                                <span>Slide Down</span>
+                            </div>
+                            <div class="preset-item" onclick="motionStudio.applyPreset('scaleOut')">
+                                <div class="preset-preview">🔍</div>
+                                <span>Scale Out</span>
+                            </div>
+                            <div class="preset-item" onclick="motionStudio.applyPreset('bounceOut')">
+                                <div class="preset-preview">🏀</div>
+                                <span>Bounce Out</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="preset-category">
+                        <h4>حركات خاصة</h4>
+                        <div class="preset-grid">
+                            <div class="preset-item" onclick="motionStudio.applyPreset('pulse')">
+                                <div class="preset-preview">💓</div>
+                                <span>Pulse</span>
+                            </div>
+                            <div class="preset-item" onclick="motionStudio.applyPreset('shake')">
+                                <div class="preset-preview">📳</div>
+                                <span>Shake</span>
+                            </div>
+                            <div class="preset-item" onclick="motionStudio.applyPreset('flip')">
+                                <div class="preset-preview">🔄</div>
+                                <span>Flip</span>
+                            </div>
+                            <div class="preset-item" onclick="motionStudio.applyPreset('rubber')">
+                                <div class="preset-preview">🎈</div>
+                                <span>Rubber</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../engine/motion-engine.js"></script>
+    <script src="motion-studio.js"></script>
+</body>
+</html>

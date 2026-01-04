@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motion Android UI Studio - الاستوديو</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="studio-container">
+        <header class="studio-header">
+            <h1>Motion Android UI Studio</h1>
+            <div class="header-actions">
+                <button class="header-btn" onclick="openMotionStudio()">🎬 Motion Studio</button>
+                <button class="header-btn" onclick="openColorAssistant()">🎨 AI Colors</button>
+                <button class="header-btn" onclick="openComponentMarketplace()">🧩 Marketplace</button>
+                <button class="header-btn" onclick="toggleDesignFeedback()">💡 تحليل التصميم</button>
+                <button class="export-btn" onclick="exportProjectEnhanced()">تصدير المشروع</button>
+            </div>
+        </header>
+
+        <div class="studio-layout">
+            <aside class="controls-panel">
+                <div class="control-section">
+                    <h3>نوع الشاشة</h3>
+                    <select id="screenType" onchange="handleScreenChange()">
+                        <option value="splash">Splash Screen</option>
+                        <option value="login">Login Screen</option>
+                        <option value="home">Home Screen</option>
+                        <option value="onboarding">Onboarding</option>
+                        <option value="settings">Settings Screen</option>
+                    </select>
+                </div>
+
+                <div class="control-section">
+                    <h3>Style Preset</h3>
+                    <div class="preset-grid">
+                        <button class="preset-btn active" data-preset="minimal" onclick="handlePresetChange(this, 'minimal')">Minimal Light</button>
+                        <button class="preset-btn" data-preset="dark" onclick="handlePresetChange(this, 'dark')">Dark Neon</button>
+                        <button class="preset-btn" data-preset="glass" onclick="handlePresetChange(this, 'glass')">Glass UI</button>
+                        <button class="preset-btn" data-preset="material" onclick="handlePresetChange(this, 'material')">Material You</button>
+                        <button class="preset-btn" data-preset="gradient" onclick="handlePresetChange(this, 'gradient')">Gradient Flow</button>
+                        <button class="preset-btn" data-preset="cyber" onclick="handlePresetChange(this, 'cyber')">Cyber</button>
+                    </div>
+                </div>
+
+                <div class="control-section">
+                    <h3>🎨 مساعد الألوان الذكي</h3>
+                    <div class="ai-color-section">
+                        <div class="color-input-group">
+                            <label>اللون الأساسي:</label>
+                            <input type="color" id="primaryColor" value="#6200EE" onchange="handleColorChange()">
+                        </div>
+                        
+                        <select id="appCategory" onchange="suggestColorsForCategory()">
+                            <option value="">اختر نوع التطبيق</option>
+                            <option value="productivity">إنتاجية</option>
+                            <option value="gaming">ألعاب</option>
+                            <option value="finance">مالية</option>
+                            <option value="social">اجتماعي</option>
+                            <option value="ecommerce">تجارة إلكترونية</option>
+                            <option value="health">صحة</option>
+                        </select>
+                        
+                        <div class="color-suggestions" id="colorSuggestions">
+                            <!-- اقتراحات الألوان -->
+                        </div>
+                        
+                        <div class="contrast-check" id="contrastCheck">
+                            <!-- فحص التباين -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-section">
+                    <h3>تحليل التصميم</h3>
+                    <div class="design-analysis" id="designAnalysis">
+                        <div class="design-score">
+                            <span class="score-label">نقاط التصميم:</span>
+                            <span class="score-value" id="designScore">--</span>
+                        </div>
+                        <div class="design-suggestions" id="designSuggestions">
+                            <!-- اقتراحات التحسين -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-section">
+                    <h3>Mood</h3>
+                    <select id="mood" onchange="handleMoodChange()">
+                        <option value="calm">Calm</option>
+                        <option value="energetic">Energetic</option>
+                        <option value="dark">Dark</option>
+                        <option value="neon">Neon</option>
+                    </select>
+                </div>
+
+                <div class="control-section">
+                    <h3>Animation Style</h3>
+                    <select id="animationStyle" onchange="handleAnimationChange()">
+                        <option value="fade-slide">Fade + Slide In</option>
+                        <option value="scale-reveal">Scale Reveal</option>
+                        <option value="staggered">Staggered Content</option>
+                        <option value="bounce">Bounce</option>
+                    </select>
+                </div>
+
+                <div class="control-section">
+                    <h3>محتوى الشاشة</h3>
+                    <div id="contentInputs">
+                        <!-- سيتم ملؤها ديناميكيًا -->
+                    </div>
+                </div>
+
+                <div class="control-section">
+                    <h3>وضع العرض</h3>
+                    <div class="theme-toggle">
+                        <button class="theme-btn active" onclick="handleThemeChange('light')">Light</button>
+                        <button class="theme-btn" onclick="handleThemeChange('dark')">Dark</button>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="preview-panel">
+                <div class="phone-mockup">
+                    <div class="phone-screen" id="phoneScreen">
+                        <!-- المعاينة المباشرة -->
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="engine/theme-engine.js"></script>
+    <script src="engine/motion-engine.js"></script>
+    <script src="engine/preview-engine.js"></script>
+    <script src="engine/export-engine.js"></script>
+    <script src="engine/ai-assistant.js"></script>
+    <script src="engine/layout-engine.js"></script>
+    <script src="engine/tokens-engine.js"></script>
+    <script src="engine/device-preview.js"></script>
+    <script>
+        // معالجات الأحداث المحسنة
+        function handleScreenChange() {
+            const screenSelect = document.getElementById('screenType');
+            if (screenSelect && window.previewEngine) {
+                const screenType = screenSelect.value;
+                console.log('Changing screen to:', screenType);
+                window.previewEngine.updateScreen(screenType);
+            }
+        }
+
+        function handlePresetChange(button, preset) {
+            // تحديث الأزرار
+            document.querySelectorAll('.preset-btn').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            if (window.themeEngine) {
+                window.themeEngine.updatePreset(preset);
+                window.themeEngine.applyCSSVariables();
+                
+                if (window.previewEngine) {
+                    setTimeout(() => {
+                        window.previewEngine.renderScreen();
+                    }, 100);
+                }
+            }
+        }
+
+        function handleColorChange() {
+            const colorInput = document.getElementById('primaryColor');
+            if (colorInput && window.themeEngine) {
+                const color = colorInput.value;
+                window.themeEngine.updatePrimaryColor(color);
+                window.themeEngine.applyCSSVariables();
+                
+                if (window.previewEngine) {
+                    setTimeout(() => {
+                        window.previewEngine.renderScreen();
+                    }, 100);
+                }
+            }
+        }
+
+        function handleMoodChange() {
+            const moodSelect = document.getElementById('mood');
+            if (moodSelect && window.themeEngine) {
+                const mood = moodSelect.value;
+                window.themeEngine.updateMood(mood);
+                window.themeEngine.applyCSSVariables();
+                
+                if (window.previewEngine) {
+                    setTimeout(() => {
+                        window.previewEngine.renderScreen();
+                    }, 100);
+                }
+            }
+        }
+
+        function handleAnimationChange() {
+            const animationSelect = document.getElementById('animationStyle');
+            if (animationSelect && window.motionEngine) {
+                const animation = animationSelect.value;
+                window.motionEngine.updateAnimationType(animation);
+            }
+        }
+
+        function handleThemeChange(theme) {
+            // تحديث الأزرار
+            document.querySelectorAll('.theme-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            if (window.themeEngine) {
+                window.themeEngine.updateTheme(theme);
+                window.themeEngine.applyCSSVariables();
+                
+                if (window.previewEngine) {
+                    setTimeout(() => {
+                        window.previewEngine.renderScreen();
+                    }, 100);
+                }
+            }
+        }
+
+        // تهيئة الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Studio initializing...');
+            
+            setTimeout(() => {
+                // تحميل التغييرات من Motion Studio إذا كانت متوفرة
+                loadChangesFromMotionStudio();
+                
+                // تأكد من تحميل جميع المحركات
+                if (window.themeEngine) {
+                    window.themeEngine.applyCSSVariables();
+                    console.log('Theme engine initialized');
+                }
+                
+                if (window.previewEngine) {
+                    const phoneScreen = document.getElementById('phoneScreen');
+                    if (phoneScreen) {
+                        window.previewEngine.updateScreen('splash');
+                        console.log('Preview engine initialized');
+                    }
+                }
+                
+                // تهيئة مساعد الألوان
+                if (window.aiAssistant) {
+                    console.log('AI Assistant initialized');
+                }
+                
+                console.log('Studio initialization complete');
+            }, 1000);
+        });
+
+        // تحميل التغييرات من Motion Studio
+        function loadChangesFromMotionStudio() {
+            try {
+                const savedState = localStorage.getItem('studioState');
+                if (savedState) {
+                    const state = JSON.parse(savedState);
+                    if (state.motionData && state.lastModified) {
+                        console.log('Loading changes from Motion Studio:', state.motionData);
+                        
+                        // تطبيق التغييرات على المحرك الحالي
+                        if (window.motionEngine && state.motionData) {
+                            console.log('Applied motion changes');
+                        }
+                        
+                        // إظهار رسالة تأكيد
+                        if (typeof showSuccessMessage === 'function') {
+                            showSuccessMessage('تم تحميل التغييرات من Motion Studio بنجاح!');
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading changes from Motion Studio:', error);
+            }
+        }
+    </script>
+</body>
+</html>

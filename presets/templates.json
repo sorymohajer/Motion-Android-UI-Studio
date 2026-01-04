@@ -1,0 +1,497 @@
+{
+  "ecommerce": {
+    "name": "E-Commerce App",
+    "description": "تطبيق تجارة إلكترونية كامل",
+    "category": "business",
+    "screens": [
+      {
+        "type": "splash",
+        "data": {
+          "appName": "متجري",
+          "tagline": "تسوق بذكاء",
+          "logoText": "🛍️"
+        },
+        "preset": "gradient",
+        "mood": "energetic",
+        "animation": "scale-reveal"
+      },
+      {
+        "type": "login",
+        "data": {
+          "title": "مرحباً بعودتك",
+          "emailLabel": "البريد الإلكتروني",
+          "passwordLabel": "كلمة المرور",
+          "loginButton": "تسجيل الدخول",
+          "signupText": "إنشاء حساب جديد"
+        },
+        "preset": "material",
+        "mood": "calm",
+        "animation": "fade-slide"
+      },
+      {
+        "type": "home",
+        "data": {
+          "title": "اكتشف المنتجات",
+          "welcomeText": "أحدث العروض",
+          "cards": ["الإلكترونيات", "الأزياء", "المنزل والحديقة", "الرياضة"]
+        },
+        "preset": "material",
+        "mood": "energetic",
+        "animation": "staggered"
+      }
+    ],
+    "colors": {
+      "primary": "#FF6B35",
+      "mood": "energetic"
+    },
+    "features": ["product-catalog", "shopping-cart", "user-accounts", "payment-integration"]
+  },
+  
+  "social": {
+    "name": "Social Media App",
+    "description": "تطبيق تواصل اجتماعي حديث",
+    "category": "social",
+    "screens": [
+      {
+        "type": "splash",
+        "data": {
+          "appName": "تواصل",
+          "tagline": "ابق على تواصل",
+          "logoText": "💬"
+        },
+        "preset": "gradient",
+        "mood": "energetic",
+        "animation": "bounce"
+      },
+      {
+        "type": "onboarding",
+        "data": {
+          "pages": [
+            {
+              "title": "تواصل مع الأصدقاء",
+              "description": "شارك لحظاتك المميزة مع من تحب"
+            },
+            {
+              "title": "اكتشف محتوى جديد",
+              "description": "تابع اهتماماتك واكتشف أشياء جديدة"
+            },
+            {
+              "title": "ابدأ رحلتك",
+              "description": "انضم إلى مجتمعنا المتنامي"
+            }
+          ]
+        },
+        "preset": "gradient",
+        "mood": "energetic",
+        "animation": "scale-reveal"
+      },
+      {
+        "type": "home",
+        "data": {
+          "title": "الرئيسية",
+          "welcomeText": "مرحباً بك",
+          "cards": ["القصص", "المنشورات", "الأصدقاء", "الرسائل"]
+        },
+        "preset": "glass",
+        "mood": "energetic",
+        "animation": "staggered"
+      }
+    ],
+    "colors": {
+      "primary": "#E91E63",
+      "mood": "energetic"
+    },
+    "features": ["user-profiles", "news-feed", "messaging", "stories", "notifications"]
+  },
+  
+  "productivity": {
+    "name": "Productivity App",
+    "description": "تطبيق إنتاجية وإدارة المهام",
+    "category": "productivity",
+    "screens": [
+      {
+        "type": "splash",
+        "data": {
+          "appName": "إنجاز",
+          "tagline": "نظم حياتك",
+          "logoText": "✅"
+        },
+        "preset": "minimal",
+        "mood": "calm",
+        "animation": "fade-slide"
+      },
+      {
+        "type": "login",
+        "data": {
+          "title": "مرحباً بعودتك",
+          "emailLabel": "البريد الإلكتروني",
+          "passwordLabel": "كلمة المرور",
+          "loginButton": "دخول",
+          "signupText": "حساب جديد"
+        },
+        "preset": "minimal",
+        "mood": "calm",
+        "animation": "fade-slide"
+      },
+      {
+        "type": "home",
+        "data": {
+          "title": "مهامي",
+          "welcomeText": "لديك 3 مهام اليوم",
+          "cards": ["المهام العاجلة", "المشاريع", "التقويم", "الملاحظات"]
+        },
+        "preset": "material",
+        "mood": "calm",
+        "animation": "staggered"
+      },
+      {
+        "type": "settings",
+        "data": {
+          "title": "الإعدادات",
+          "sections": [
+            {
+              "title": "الحساب",
+              "items": ["الملف الشخصي", "المزامنة", "النسخ الاحتياطي"]
+            },
+            {
+              "title": "التطبيق",
+              "items": ["الإشعارات", "المظهر", "اللغة"]
+            }
+          ]
+        },
+        "preset": "minimal",
+        "mood": "calm",
+        "animation": "fade-slide"
+      }
+    ],
+    "colors": {
+      "primary": "#2196F3",
+      "mood": "calm"
+    },
+    "features": ["task-management", "calendar", "notes", "reminders", "sync"]
+  },
+  
+  "finance": {
+    "name": "Finance App",
+    "description": "تطبيق إدارة مالية شخصية",
+    "category": "finance",
+    "screens": [
+      {
+        "type": "splash",
+        "data": {
+          "appName": "محفظتي",
+          "tagline": "إدارة ذكية للأموال",
+          "logoText": "💰"
+        },
+        "preset": "dark",
+        "mood": "calm",
+        "animation": "scale-reveal"
+      },
+      {
+        "type": "login",
+        "data": {
+          "title": "دخول آمن",
+          "emailLabel": "البريد الإلكتروني",
+          "passwordLabel": "كلمة المرور",
+          "loginButton": "دخول",
+          "signupText": "إنشاء حساب"
+        },
+        "preset": "material",
+        "mood": "calm",
+        "animation": "fade-slide"
+      },
+      {
+        "type": "home",
+        "data": {
+          "title": "نظرة عامة",
+          "welcomeText": "رصيدك الحالي",
+          "cards": ["الحسابات", "المعاملات", "الميزانية", "التقارير"]
+        },
+        "preset": "material",
+        "mood": "calm",
+        "animation": "staggered"
+      }
+    ],
+    "colors": {
+      "primary": "#4CAF50",
+      "mood": "calm"
+    },
+    "features": ["account-management", "transactions", "budgeting", "reports", "security"]
+  },
+  
+  "health": {
+    "name": "Health & Fitness App",
+    "description": "تطبيق صحة ولياقة بدنية",
+    "category": "health",
+    "screens": [
+      {
+        "type": "splash",
+        "data": {
+          "appName": "صحتي",
+          "tagline": "حياة صحية أفضل",
+          "logoText": "❤️"
+        },
+        "preset": "gradient",
+        "mood": "energetic",
+        "animation": "bounce"
+      },
+      {
+        "type": "onboarding",
+        "data": {
+          "pages": [
+            {
+              "title": "تتبع نشاطك",
+              "description": "راقب خطواتك وأنشطتك اليومية"
+            },
+            {
+              "title": "خطط تمارين مخصصة",
+              "description": "احصل على برامج تمارين تناسب مستواك"
+            },
+            {
+              "title": "ابدأ رحلة الصحة",
+              "description": "حقق أهدافك الصحية معنا"
+            }
+          ]
+        },
+        "preset": "gradient",
+        "mood": "energetic",
+        "animation": "scale-reveal"
+      },
+      {
+        "type": "home",
+        "data": {
+          "title": "لوحة التحكم",
+          "welcomeText": "هدفك اليوم: 10,000 خطوة",
+          "cards": ["الخطوات", "التمارين", "النوم", "التغذية"]
+        },
+        "preset": "material",
+        "mood": "energetic",
+        "animation": "staggered"
+      }
+    ],
+    "colors": {
+      "primary": "#FF5722",
+      "mood": "energetic"
+    },
+    "features": ["activity-tracking", "workout-plans", "nutrition", "sleep-tracking", "goals"]
+  },
+  
+  "education": {
+    "name": "Education App",
+    "description": "تطبيق تعليمي تفاعلي",
+    "category": "education",
+    "screens": [
+      {
+        "type": "splash",
+        "data": {
+          "appName": "تعلم",
+          "tagline": "المعرفة في متناول يدك",
+          "logoText": "📚"
+        },
+        "preset": "minimal",
+        "mood": "calm",
+        "animation": "fade-slide"
+      },
+      {
+        "type": "onboarding",
+        "data": {
+          "pages": [
+            {
+              "title": "تعلم بطريقتك",
+              "description": "دروس تفاعلية تناسب وقتك"
+            },
+            {
+              "title": "تتبع تقدمك",
+              "description": "راقب إنجازاتك وحقق أهدافك"
+            },
+            {
+              "title": "ابدأ التعلم",
+              "description": "رحلة المعرفة تبدأ من هنا"
+            }
+          ]
+        },
+        "preset": "material",
+        "mood": "calm",
+        "animation": "scale-reveal"
+      },
+      {
+        "type": "home",
+        "data": {
+          "title": "دوراتي",
+          "welcomeText": "استكمل تعلمك",
+          "cards": ["الدورات الحالية", "الإنجازات", "المفضلة", "التقدم"]
+        },
+        "preset": "material",
+        "mood": "calm",
+        "animation": "staggered"
+      }
+    ],
+    "colors": {
+      "primary": "#9C27B0",
+      "mood": "calm"
+    },
+    "features": ["courses", "progress-tracking", "quizzes", "certificates", "offline-content"]
+  },
+  
+  "gaming": {
+    "name": "Gaming App",
+    "description": "تطبيق ألعاب تفاعلية",
+    "category": "gaming",
+    "screens": [
+      {
+        "type": "splash",
+        "data": {
+          "appName": "العب",
+          "tagline": "مغامرات لا تنتهي",
+          "logoText": "🎮"
+        },
+        "preset": "cyber",
+        "mood": "neon",
+        "animation": "bounce"
+      },
+      {
+        "type": "home",
+        "data": {
+          "title": "قاعة الألعاب",
+          "welcomeText": "اختر لعبتك المفضلة",
+          "cards": ["الألعاب الشائعة", "الجديد", "المفضلة", "التحديات"]
+        },
+        "preset": "cyber",
+        "mood": "neon",
+        "animation": "scale-reveal"
+      }
+    ],
+    "colors": {
+      "primary": "#00FFFF",
+      "mood": "neon"
+    },
+    "features": ["game-library", "leaderboards", "achievements", "multiplayer", "in-app-purchases"]
+  },
+  
+  "music": {
+    "name": "Music Streaming App",
+    "description": "تطبيق بث موسيقي",
+    "category": "entertainment",
+    "screens": [
+      {
+        "type": "splash",
+        "data": {
+          "appName": "نغمات",
+          "tagline": "موسيقى لكل لحظة",
+          "logoText": "🎵"
+        },
+        "preset": "dark",
+        "mood": "dark",
+        "animation": "scale-reveal"
+      },
+      {
+        "type": "home",
+        "data": {
+          "title": "اكتشف الموسيقى",
+          "welcomeText": "مرحباً بعودتك",
+          "cards": ["المفضلة", "الجديد", "قوائم التشغيل", "الفنانون"]
+        },
+        "preset": "dark",
+        "mood": "dark",
+        "animation": "staggered"
+      }
+    ],
+    "colors": {
+      "primary": "#1DB954",
+      "mood": "dark"
+    },
+    "features": ["music-streaming", "playlists", "offline-mode", "recommendations", "social-sharing"]
+  },
+  
+  "travel": {
+    "name": "Travel App",
+    "description": "تطبيق سفر وسياحة",
+    "category": "travel",
+    "screens": [
+      {
+        "type": "splash",
+        "data": {
+          "appName": "رحلتي",
+          "tagline": "اكتشف العالم",
+          "logoText": "✈️"
+        },
+        "preset": "gradient",
+        "mood": "energetic",
+        "animation": "bounce"
+      },
+      {
+        "type": "onboarding",
+        "data": {
+          "pages": [
+            {
+              "title": "خطط رحلتك",
+              "description": "احجز رحلات وفنادق بسهولة"
+            },
+            {
+              "title": "اكتشف وجهات جديدة",
+              "description": "استكشف أماكن مذهلة حول العالم"
+            },
+            {
+              "title": "ابدأ المغامرة",
+              "description": "رحلتك القادمة تنتظرك"
+            }
+          ]
+        },
+        "preset": "gradient",
+        "mood": "energetic",
+        "animation": "scale-reveal"
+      },
+      {
+        "type": "home",
+        "data": {
+          "title": "استكشف",
+          "welcomeText": "إلى أين تريد السفر؟",
+          "cards": ["الرحلات", "الفنادق", "الأنشطة", "المفضلة"]
+        },
+        "preset": "material",
+        "mood": "energetic",
+        "animation": "staggered"
+      }
+    ],
+    "colors": {
+      "primary": "#00BCD4",
+      "mood": "energetic"
+    },
+    "features": ["flight-booking", "hotel-booking", "itinerary", "local-guides", "reviews"]
+  },
+  
+  "news": {
+    "name": "News App",
+    "description": "تطبيق أخبار ومقالات",
+    "category": "news",
+    "screens": [
+      {
+        "type": "splash",
+        "data": {
+          "appName": "أخباري",
+          "tagline": "ابق على اطلاع",
+          "logoText": "📰"
+        },
+        "preset": "minimal",
+        "mood": "calm",
+        "animation": "fade-slide"
+      },
+      {
+        "type": "home",
+        "data": {
+          "title": "الأخبار",
+          "welcomeText": "آخر الأخبار",
+          "cards": ["العاجل", "الرياضة", "التكنولوجيا", "الاقتصاد"]
+        },
+        "preset": "minimal",
+        "mood": "calm",
+        "animation": "staggered"
+      }
+    ],
+    "colors": {
+      "primary": "#607D8B",
+      "mood": "calm"
+    },
+    "features": ["news-feed", "categories", "bookmarks", "offline-reading", "push-notifications"]
+  }
+}

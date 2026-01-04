@@ -1,0 +1,128 @@
+{
+  "minimal": {
+    "name": "Minimal Light",
+    "description": "تصميم بسيط ونظيف",
+    "colors": {
+      "primary": "#6200EE",
+      "primaryVariant": "#3700B3",
+      "secondary": "#03DAC6",
+      "background": "#FAFAFA",
+      "surface": "#FFFFFF",
+      "onPrimary": "#FFFFFF",
+      "onSecondary": "#000000",
+      "onBackground": "#000000",
+      "onSurface": "#000000"
+    },
+    "characteristics": {
+      "borderRadius": "8px",
+      "shadows": "subtle",
+      "gradients": false,
+      "glassmorphism": false
+    }
+  },
+  "dark": {
+    "name": "Dark Neon",
+    "description": "تصميم مظلم مع ألوان نيون",
+    "colors": {
+      "primary": "#BB86FC",
+      "primaryVariant": "#6200EE", 
+      "secondary": "#03DAC6",
+      "background": "#121212",
+      "surface": "#1E1E1E",
+      "onPrimary": "#000000",
+      "onSecondary": "#000000",
+      "onBackground": "#FFFFFF",
+      "onSurface": "#FFFFFF"
+    },
+    "characteristics": {
+      "borderRadius": "12px",
+      "shadows": "glow",
+      "gradients": true,
+      "glassmorphism": false
+    }
+  },
+  "glass": {
+    "name": "Glass UI",
+    "description": "تأثير زجاجي شفاف",
+    "colors": {
+      "primary": "#6200EE",
+      "primaryVariant": "#3700B3",
+      "secondary": "#03DAC6", 
+      "background": "#F0F0F0",
+      "surface": "rgba(255,255,255,0.1)",
+      "onPrimary": "#FFFFFF",
+      "onSecondary": "#FFFFFF",
+      "onBackground": "#000000",
+      "onSurface": "#000000"
+    },
+    "characteristics": {
+      "borderRadius": "16px",
+      "shadows": "soft",
+      "gradients": true,
+      "glassmorphism": true
+    }
+  },
+  "material": {
+    "name": "Material You",
+    "description": "تصميم Material Design 3",
+    "colors": {
+      "primary": "#6750A4",
+      "primaryVariant": "#4F378B",
+      "secondary": "#625B71",
+      "background": "#FFFBFE",
+      "surface": "#FFFBFE",
+      "onPrimary": "#FFFFFF",
+      "onSecondary": "#FFFFFF", 
+      "onBackground": "#1C1B1F",
+      "onSurface": "#1C1B1F"
+    },
+    "characteristics": {
+      "borderRadius": "12px",
+      "shadows": "material",
+      "gradients": false,
+      "glassmorphism": false
+    }
+  },
+  "gradient": {
+    "name": "Gradient Flow",
+    "description": "تدرجات لونية متدفقة",
+    "colors": {
+      "primary": "#667eea",
+      "primaryVariant": "#764ba2",
+      "secondary": "#f093fb",
+      "background": "#ffecd2",
+      "surface": "#fcb69f",
+      "onPrimary": "#FFFFFF",
+      "onSecondary": "#FFFFFF",
+      "onBackground": "#000000", 
+      "onSurface": "#000000"
+    },
+    "characteristics": {
+      "borderRadius": "20px",
+      "shadows": "colorful",
+      "gradients": true,
+      "glassmorphism": false
+    }
+  },
+  "cyber": {
+    "name": "Cyber / Futuristic",
+    "description": "تصميم مستقبلي سايبر",
+    "colors": {
+      "primary": "#00FFFF",
+      "primaryVariant": "#0080FF",
+      "secondary": "#FF0080",
+      "background": "#000000",
+      "surface": "#111111",
+      "onPrimary": "#000000",
+      "onSecondary": "#000000",
+      "onBackground": "#00FFFF",
+      "onSurface": "#00FFFF"
+    },
+    "characteristics": {
+      "borderRadius": "4px",
+      "shadows": "neon",
+      "gradients": true,
+      "glassmorphism": false
+    }
+  }
+}

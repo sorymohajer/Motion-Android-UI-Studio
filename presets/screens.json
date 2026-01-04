@@ -1,0 +1,78 @@
+{
+  "splash": {
+    "name": "Splash Screen",
+    "description": "شاشة البداية مع أنيميشن اللوجو",
+    "defaultData": {
+      "appName": "تطبيقي",
+      "tagline": "مرحباً بك",
+      "logoText": "Logo"
+    },
+    "animations": ["fade-slide", "scale-reveal", "bounce"],
+    "presets": ["minimal", "dark", "gradient", "cyber"]
+  },
+  "login": {
+    "name": "Login Screen", 
+    "description": "شاشة تسجيل دخول عصرية",
+    "defaultData": {
+      "title": "تسجيل الدخول",
+      "emailLabel": "البريد الإلكتروني",
+      "passwordLabel": "كلمة المرور",
+      "loginButton": "دخول",
+      "signupText": "إنشاء حساب جديد"
+    },
+    "animations": ["fade-slide", "staggered", "scale-reveal"],
+    "presets": ["minimal", "glass", "material", "gradient"]
+  },
+  "home": {
+    "name": "Home Screen",
+    "description": "الشاشة الرئيسية مع البطاقات",
+    "defaultData": {
+      "title": "الرئيسية",
+      "welcomeText": "مرحباً بك",
+      "cards": ["البطاقة الأولى", "البطاقة الثانية", "البطاقة الثالثة"]
+    },
+    "animations": ["staggered", "fade-slide", "scale-reveal"],
+    "presets": ["material", "minimal", "gradient", "glass"]
+  },
+  "onboarding": {
+    "name": "Onboarding",
+    "description": "شاشات التعريف بالتطبيق",
+    "defaultData": {
+      "pages": [
+        {
+          "title": "مرحباً",
+          "description": "اكتشف ميزات التطبيق الرائعة"
+        },
+        {
+          "title": "سهل الاستخدام", 
+          "description": "واجهة بسيطة وسهلة"
+        },
+        {
+          "title": "ابدأ الآن",
+          "description": "جاهز للبدء؟"
+        }
+      ]
+    },
+    "animations": ["fade-slide", "scale-reveal", "staggered"],
+    "presets": ["minimal", "gradient", "material", "glass"]
+  },
+  "settings": {
+    "name": "Settings Screen",
+    "description": "شاشة إعدادات حديثة",
+    "defaultData": {
+      "title": "الإعدادات",
+      "sections": [
+        {
+          "title": "الحساب",
+          "items": ["الملف الشخصي", "الخصوصية"]
+        },
+        {
+          "title": "التطبيق", 
+          "items": ["الإشعارات", "اللغة"]
+        }
+      ]
+    },
+    "animations": ["staggered", "fade-slide", "scale-reveal"],
+    "presets": ["material", "minimal", "glass", "dark"]
+  }
+}
